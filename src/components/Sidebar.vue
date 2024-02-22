@@ -38,18 +38,23 @@
 				<span class="material-icons">add_box</span>
 				<span class="text">สมัครสมาชิก</span>
 			</router-link>
-			<router-link to="/logout" class="button text-red-700">
+			<button 
+			class="button text-red-700"
+			@click="Logout"
+			>
 				<!-- <span class="material-icons">arrow_back</span> -->
 				<span class="material-icons">keyboard_arrow_left</span>
 				<span class="text">ออกจากระบบ</span>
-			</router-link>
+			</button>
 		</div>
 	</aside>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import logoURL from '../assets/Home1.png'
+import { useRouter } from 'vue-router' // เพิ่มการนำเข้า useRouter
+
+const router = useRouter() // ประกาศตัวแปร router
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 
@@ -57,7 +62,17 @@ const ToggleMenu = () => {
 	is_expanded.value = !is_expanded.value
 	localStorage.setItem("is_expanded", is_expanded.value)
 }
+
+const Logout = () => {
+	// ทำการลบข้อมูลการเข้าสู่ระบบที่เก็บไว้ เช่น token, ข้อมูลผู้ใช้งาน หรืออื่น ๆ
+	// ตัวอย่างเช่น
+	// localStorage.removeItem("token")
+	// localStorage.removeItem("user")
+	// หลังจากลบข้อมูลเสร็จสามารถ redirect ไปยังหน้า /login ได้
+	router.push('/login')
+}
 </script>
+
 
 <style lang="scss" scoped>
 aside {
