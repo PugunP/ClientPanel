@@ -44,7 +44,9 @@
 
 			<p class="mt-10 text-center text-sm text-gray-500">
 				มีรหัสผ่านอยู่แล้ว?
+			<router-link to="/login">
 				<a href="/login" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">เข้าสู่ระบบ</a>
+			</router-link>
 			</p>
 		</div>
 	</div>

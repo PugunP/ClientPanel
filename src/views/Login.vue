@@ -32,7 +32,9 @@
 
     <p class="mt-10 text-center text-sm text-gray-500">
       ยังไม่เคยมีรหัสผ่าน?
+			<router-link to="/register">
       <a href="/register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">สมัครสมาชิก</a>
+      </router-link>
     </p>
   </div>
 </div>
