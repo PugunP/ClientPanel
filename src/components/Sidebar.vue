@@ -13,15 +13,15 @@
 		<h3>Menu</h3>
 		<div class="menu">
 			<router-link to="/" class="button">
-				<!-- <span class="material-icons">home</span> -->
+				<span class="material-icons">favorite</span>
 				<span class="text">ตรวจสุขภาพ</span>
 			</router-link>
 			<router-link to="/history" class="button">
-				<!-- <span class="material-icons">home</span> -->
+				<span class="material-icons">assignment</span>
 				<span class="text">ประวัติการตรวจ</span>
 			</router-link>
 			<router-link to="/account" class="button">
-				<!-- <span class="material-icons">description</span> -->
+				<span class="material-icons">account_circle</span>
 				<span class="text">จัดการบัญชี</span>
 			</router-link>
 		</div>
@@ -30,15 +30,17 @@
 		
 		<div class="menu">
 			<router-link to="/login" class="button">
-				<!-- <span class="material-icons">settings</span> -->
+				<!-- <span class="material-icons">arrow_forward</span> -->
+				<span class="material-icons">keyboard_arrow_right</span>
 				<span class="text">เข้าสู่ระบบ</span>
 			</router-link>
 			<router-link to="/register" class="button">
-				<!-- <span class="material-icons">settings</span> -->
+				<span class="material-icons">add_box</span>
 				<span class="text">สมัครสมาชิก</span>
 			</router-link>
 			<router-link to="/logout" class="button text-red-700">
-				<!-- <span class="material-icons">settings</span> -->
+				<!-- <span class="material-icons">arrow_back</span> -->
+				<span class="material-icons">keyboard_arrow_left</span>
 				<span class="text">ออกจากระบบ</span>
 			</router-link>
 		</div>
@@ -47,7 +49,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import logoURL from '../assets/logo.png'
+import logoURL from '../assets/Home1.png'
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 
