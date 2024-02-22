@@ -53,6 +53,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router' // เพิ่มการนำเข้า useRouter
+import logoURL from '../assets/Home1.png'
 
 const router = useRouter() // ประกาศตัวแปร router
 
