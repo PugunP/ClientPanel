@@ -1,16 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TableList from '../views/TableList.vue'
+import Health from '../views/Health.vue'
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
 		{
 			path: '/',
-			component: TableList
+			component: Health
 		},
 		{
 			path: '/account',
 			component: () => import('../views/Account.vue')
+		},
+		{
+			path: '/history',
+			component: () => import('../views/HistoryHealth.vue')
 		},
 		{
 			path:'/login',

@@ -13,12 +13,16 @@
 		<h3>Menu</h3>
 		<div class="menu">
 			<router-link to="/" class="button">
-				<span class="material-icons">home</span>
-				<span class="text">TableList</span>
+				<!-- <span class="material-icons">home</span> -->
+				<span class="text">ตรวจสุขภาพ</span>
+			</router-link>
+			<router-link to="/history" class="button">
+				<!-- <span class="material-icons">home</span> -->
+				<span class="text">ประวัติการตรวจ</span>
 			</router-link>
 			<router-link to="/account" class="button">
-				<span class="material-icons">description</span>
-				<span class="text">Account</span>
+				<!-- <span class="material-icons">description</span> -->
+				<span class="text">จัดการบัญชี</span>
 			</router-link>
 		</div>
 
@@ -32,6 +36,10 @@
 			<router-link to="/register" class="button">
 				<!-- <span class="material-icons">settings</span> -->
 				<span class="text">สมัครสมาชิก</span>
+			</router-link>
+			<router-link to="/logout" class="button text-red-700">
+				<!-- <span class="material-icons">settings</span> -->
+				<span class="text">ออกจากระบบ</span>
 			</router-link>
 		</div>
 	</aside>
