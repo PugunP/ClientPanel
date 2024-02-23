@@ -49,12 +49,12 @@
 <script>
 export default {
   name: " HistoryHealth",
-  // data(){
+  data(){
 
-  // },
-  // computed:{
+  },
+  computed:{
 
-  // },
+  },
   method: {
     showinfoModal() {},
   },
