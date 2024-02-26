@@ -23,7 +23,7 @@
 
 <script>
 export default {
-    name: "404_Page",
+    name: "401_Page",
     data() {
         return {            
         }
