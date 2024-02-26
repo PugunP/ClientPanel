@@ -46,7 +46,7 @@
 				to="/login" 
 				class="button"
 				>
-				<span class="material-icons">keyboard_arrow_right</span>
+				<span class="material-icons ">keyboard_arrow_right</span>
 				<span class="text">เข้าสู่ระบบ</span>
 			</router-link>
 			<router-link 
