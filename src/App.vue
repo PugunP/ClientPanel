@@ -30,7 +30,6 @@ const checkToken = () => {
   if (accessToken.value) {
     router.push('/');
   } else {
-    // router.push('/login');
     router.push('/login'); // เพียงแค่เพื่อการตัวอย่างเท่านั้น
   }
 };
