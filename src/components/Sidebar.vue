@@ -12,15 +12,27 @@
 
 		<h3>Menu</h3>
 		<div class="menu">
-			<router-link to="/" class="button">
+			<router-link 
+				to="/" 
+				class="button"
+				@click="checkAccessToken(Health)"
+				>
 				<span class="material-icons">favorite</span>
 				<span class="text">ตรวจสุขภาพ</span>
 			</router-link>
-			<router-link to="/history" class="button">
+			<router-link 
+				to="/history" 
+				class="button"
+				@click="checkAccessToken(History)"
+				>
 				<span class="material-icons">assignment</span>
 				<span class="text">ประวัติการตรวจ</span>
 			</router-link>
-			<router-link to="/account" class="button">
+			<router-link
+				to="/account" 
+				class="button"
+				@click="checkAccessToken(Account)"
+				>
 				<span class="material-icons">account_circle</span>
 				<span class="text">จัดการบัญชี</span>
 			</router-link>
@@ -29,29 +41,37 @@
 		<div class="flex"></div>
 		
 		<div class="menu">
-			<router-link to="/login" class="button">
-				<!-- <span class="material-icons">arrow_forward</span> -->
+			<router-link 
+				v-if="!hasAccessToken"
+				to="/login" 
+				class="button"
+				>
 				<span class="material-icons">keyboard_arrow_right</span>
 				<span class="text">เข้าสู่ระบบ</span>
 			</router-link>
-			<router-link to="/register" class="button">
+			<router-link 
+				v-if="hasAccessToken"
+				to="/login"
+				class="button"
+				@click="Logout"
+				>
+				<span class="material-icons">keyboard_arrow_left</span>
+				<span class="text">ออกจากระบบ</span>
+			</router-link>
+			<router-link 
+				to="/register" 
+				class="button"
+				v-if="!hasAccessToken"
+				>
 				<span class="material-icons">add_box</span>
 				<span class="text">สมัครสมาชิก</span>
 			</router-link>
-			<button 
-			class="button text-red-700"
-			@click="Logout"
-			>
-				<!-- <span class="material-icons">arrow_back</span> -->
-				<span class="material-icons">keyboard_arrow_left</span>
-				<span class="text">ออกจากระบบ</span>
-			</button>
 		</div>
 	</aside>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref,watch } from 'vue'
 import { useRouter } from 'vue-router' // เพิ่มการนำเข้า useRouter
 import logoURL from '../assets/Home1.png'
 
@@ -64,13 +84,48 @@ const ToggleMenu = () => {
 	localStorage.setItem("is_expanded", is_expanded.value)
 }
 
+// ประกาศตัวแปร hasAccessToken โดยอ้างอิงจากค่าใน LocalStorage
+const hasAccessToken = ref(localStorage.getItem("accessToken") !== null)
+
+// กำหนด Watcher เพื่อตรวจสอบการเปลี่ยนแปลงใน LocalStorage
+watch(() => localStorage.getItem("accessToken"), (newValue) => {
+  // อัพเดทค่าของ hasAccessToken เมื่อมีการเปลี่ยนแปลงใน LocalStorage
+  hasAccessToken.value = newValue !== null
+})
+
+//ประกาศตัวแปรตรวจสอบ Token ก็ใช้งานปุ่ม
+const checkAccessToken = (callback) => {
+	const accessToken = localStorage.getItem('accessToken')
+	if (accessToken) {
+		callback()
+	} else {
+		console.log("กรุณาเข้าสู่ระบบ")
+		router.push('/401')
+	}
+}
+
 const Logout = () => {
-	// ทำการลบข้อมูลการเข้าสู่ระบบที่เก็บไว้ เช่น token, ข้อมูลผู้ใช้งาน หรืออื่น ๆ
-	// ตัวอย่างเช่น
-	// localStorage.removeItem("token")
-	// localStorage.removeItem("user")
-	// หลังจากลบข้อมูลเสร็จสามารถ redirect ไปยังหน้า /login ได้
-	router.push('/login')
+	// ลบ accessToken ที่มีอยู่ใน LocalStorage
+	localStorage.removeItem("accessToken");
+
+	// Refresh หน้าเพื่อให้มั่นใจว่าข้อมูลถูกล้างและสถานะใหม่ถูกโหลดขึ้นมาทันที
+	window.location.reload();
+	
+	// ทำการ redirect ไปยังหน้า /login
+	router.push('/login');
+	console.log("ออกจากระบบสำเร็จ");
+}
+const Account = () => {
+	router.push('/account')
+	console.log("จัดการบัญชี");
+}
+const History = () => {
+	router.push('/history')
+	console.log("ประวัติการตรวจ");
+}
+const Health = () => {
+	router.push('/')
+	console.log("ตรวจสอบสุขภาพ");
 }
 </script>
 
