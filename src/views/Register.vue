@@ -52,8 +52,6 @@
 				</router-link>
 			</p>
 		</div>
-		<div v-if="passwordMatchError" class="text-red-500 text-sm mt-2">รหัสผ่านไม่ตรงกัน</div>
-
 	</div>
 </template>
     
@@ -73,20 +71,22 @@ export default {
 
 	methods: {
 		checkPasswordMatch() {
-			if (this.password !== this.confirmPassword) {
+			if (this.password === this.confirmPassword) {
 				// Passwords do not match
 				// Handle accordingly, e.g., show an error message
 				this.passwordMatchError = true;  // ตั้งค่าสถานะ error
+				this.$router.push('/login');
 			} else {
 				// Passwords match
 				// You can proceed with registration logic here
 				this.passwordMatchError = false;  // รหัสผ่านตรงกัน, ล้างสถานะ error
-				console.log('Passwords match');
+				alert('รหัสผ่านไม่ตรงกัน');
+				//console.log('Passwords match');
 				this.Login();  // You may want to call your existing Login method
 			}
 		},
 		Login() {
-			this.$router.push('/dashboard');
+			
 		},
 	}
 };
