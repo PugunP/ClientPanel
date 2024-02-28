@@ -26,36 +26,64 @@
                                 </svg>
                             </button>
                         </td>
-						
                     </tr>
                 </tbody>
             </table>
         </div>
-		<div v-show="isInfoModalOpen" class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
-    <div class="bg-white rounded-lg p-6 max-w-md">
-        <div class="flex justify-between items-center">
-            <h2 class="text-lg font-bold text-gray-800">รูปภาพที่ถูกอัพโหลด</h2>
-            <button @click="hideInfoModal" class="text-gray-600 hover:text-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
+        <div v-show="isInfoModalOpen" class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
+            <div class="bg-white rounded-lg p-6 w-auto h-auto">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-4xl font-bold text-gray-800">รูปภาพที่ถูกอัพโหลด</h2>
+                    <button @click="hideInfoModal" class="text-gray-600 hover:text-gray-800 focus:outline-none hover:bg-gray-200">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+         class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+        </path>
+    </svg>
+</button>
+
+                </div>
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-xl">
+                            1. ความดันของเลือดสูงสุดขณะหัวใจห้องล่างบีบตัว
+                        </p>
+                        <img src="../assets/test.jpeg" alt="Image 1" class="w-full h-auto object-cover rounded-lg" />
+                        <br />
+                        <p class="text-xl border rounded p-4 bg-gray-100">1. 123</p>
+                    </div>
+                    <div>
+                        <p class="text-xl">
+                            2. ความดันเลือดที่ต่ำสุดขณะหัวใจห้องล่างคลายตัว
+                        </p>
+                        <img src="../assets/test.jpeg" alt="Image 2" class="w-full h-auto object-cover rounded-lg" />
+                        <br />
+                        <p class="text-xl border rounded p-4 bg-gray-100">2. 123</p>
+                    </div>
+                    <div>
+                        <p class="text-xl">3. ชีพจร</p>
+                        <img src="../assets/test.jpeg" alt="Image 3" class="w-full h-auto object-cover rounded-lg" />
+                        <br />
+                        <p class="text-xl border rounded p-4 bg-gray-100">3. 123</p>
+                    </div>
+                    <div>
+                        <p class="text-xl">4. ความเข้มข้นของออกซิเจนในเลือด</p>
+                        <img src="../assets/test.jpeg" alt="Image 4" class="w-full h-auto object-cover rounded-lg" />
+                        <br />
+                        <p class="text-xl border rounded p-4 bg-gray-100">. 123</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mt-4 grid grid-cols-2 gap-4">
-            <img src="../assets/test.jpeg" alt="Image 1" class="w-full h-auto rounded-lg">
-            <img src="../assets/test.jpeg" alt="Image 2" class="w-full h-auto rounded-lg">
-            <img src="../assets/test.jpeg" alt="Image 3" class="w-full h-auto rounded-lg">
-            <img src="../assets/test.jpeg" alt="Image 4" class="w-full h-auto rounded-lg">
-        </div>
-    </div>
-</div>
 
         <!-- Pagination Buttons -->
         <div class="flex justify-between p-8">
-            <button @click="previousPage" :disabled="currentPage === 1"> Previous Page</button>
-            <button @click="nextPage" :disabled="currentPage >= pageCount">Next Page</button>
+            <button @click="previousPage" :disabled="currentPage === 1">
+                Previous Page
+            </button>
+            <button @click="nextPage" :disabled="currentPage >= pageCount">
+                Next Page
+            </button>
         </div>
     </main>
 </template>
@@ -65,21 +93,21 @@ export default {
     name: "HistoryHealth",
     data() {
         return {
-			isInfoModalOpen: false,
+            isInfoModalOpen: false,
             tableData: [
-                { date: '25/06/2567'},
-                { date: '26/06/2567'},
-                { date: '27/06/2567' },
-                { date: '28/06/2567' },
-                { date: '29/06/2567' },
-                { date: '30/06/2567' },
-                { date: '31/06/2567' },
-                { date: '32/06/2567' },
-                { date: '33/06/2567' },
-                { date: '34/06/2567' },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
             ],
             currentPage: 1,
-            itemsPerPage: 5
+            itemsPerPage: 5,
         };
     },
     computed: {
@@ -89,17 +117,16 @@ export default {
         },
         pageCount() {
             return Math.ceil(this.tableData.length / this.itemsPerPage);
-        }
+        },
     },
     methods: {
         showInfoModal(item) {
-			this.isInfoModalOpen = true;
-            console.log(item); 
+            this.isInfoModalOpen = true;
+            console.log(item);
         },
-		hideInfoModal() {
-			this.isInfoModalOpen = false;
-			
-		},
+        hideInfoModal() {
+            this.isInfoModalOpen = false;
+        },
         previousPage() {
             if (this.currentPage > 1) {
                 this.currentPage--;
@@ -109,7 +136,7 @@ export default {
             if (this.currentPage < this.pageCount) {
                 this.currentPage++;
             }
-        }
+        },
     },
 };
 </script>
