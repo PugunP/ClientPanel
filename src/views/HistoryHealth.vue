@@ -7,6 +7,9 @@
                 <thead class="text-xs text-black uppercase">
                     <tr class="text-center">
                         <th scope="col" class="px-2 py-3 border border-black text-lg">
+                            ลำดับที่
+                        </th>
+                        <th scope="col" class="px-2 py-3 border border-black text-lg">
                             วันที่/เดือน/ปี
                         </th>
                         <th scope="col" class="px-4 py-3 border border-black text-lg">
@@ -16,6 +19,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(row, index) in paginatedData" :key="index" class="text-center">
+                        <td class="px-2 py-3 border border-black">{{ index + 1 }}</td>
                         <td class="px-2 py-3 border border-black">{{ row.date }}</td>
                         <td class="border border-black">
                             <button @click="showInfoModal(row)" class="border border-black" type="button">
@@ -125,9 +129,69 @@ export default {
                 { date: "32/06/2567" },
                 { date: "33/06/2567" },
                 { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
             ],
             currentPage: 1,
-            itemsPerPage: 15,
+            itemsPerPage: 5,
         };
     },
     computed: {
