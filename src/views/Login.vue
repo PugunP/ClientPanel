@@ -56,9 +56,11 @@ export default {
         this.$router.push('/')
         console.log("Set Token successfully");
       },
-      submitForm() {
-      this.Login();
-    }
+      handleEnter(event) {
+            if (event.key === 'Enter') {
+                this.Login();
+            }
+        }
     }
 };
 </script>
