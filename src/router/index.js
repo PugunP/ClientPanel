@@ -48,7 +48,7 @@ router.beforeEach((to, from, next) => {
   
   if (to.meta.requiresAuth && !accessToken) {
     // ถ้าเส้นทางต้องการการยืนยันตัวตนและไม่มี accessToken ใน localStorage ให้ redirect ไปที่หน้า login
-    next('/404');
+    next('/401');
   } else {
     // ในกรณีอื่น ๆ ให้ทำการเปลี่ยนเส้นทางตามปกติ
     next();
