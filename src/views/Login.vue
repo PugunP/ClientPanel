@@ -6,9 +6,15 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" @submit.prevent="LOGIN_API">
+      <form 
+        class="space-y-6" 
+        @submit.prevent="LOGIN_API"
+        >
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+          <label 
+            for="username" 
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Username</label>
           <div class="mt-2">
             <input 
               id="username" 
@@ -18,13 +24,16 @@
               required
               v-model="formData.username"
               class="px-2.5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              @keydown.enter="submitForm">
+              @keydown.enter="submitForm"
+              >
           </div>
         </div>
 
         <div>
           <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+            <label 
+              for="password" 
+              class="block text-sm font-medium leading-6 text-gray-900">Password</label>
           </div>
           <div class="mt-2">
             <input 
@@ -35,29 +44,36 @@
               required
               v-model="formData.password"
               class="px-2.5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              @keydown.enter="submitForm">
+              @keydown.enter="submitForm"
+              >
           </div>
         </div>
 
         <div>
-          <button type="submit"
-            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">เข้าสู่ระบบ</button>
+          <button 
+            type="submit"
+            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >เข้าสู่ระบบ</button>
         </div>
       </form>
 
       <p class="mt-10 text-center text-sm text-gray-500">
         ยังไม่เคยมีรหัสผ่าน?
         <router-link to="/register">
-          <a href="/register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">สมัครสมาชิก</a>
+          <a 
+            href="/register" 
+            class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >สมัครสมาชิก</a>
         </router-link>
       </p>
     </div>
   </div>
 </template>
-    
+
 <script>
 import axios from "axios";
 import { baseURL, LOGIN_API } from "../APIGate";
+import Swal from "sweetalert2";
 export default {
   name: 'Login_Page',
   component: {
@@ -97,6 +113,14 @@ export default {
         }
       } catch (error) {
         console.log("ตอ", error);
+        Swal.fire({
+          icon: "error",
+          title: "ขออภัย... เจอตอ",
+          text: "รหัสผ่านของคุณไม่ถูกต้อง",
+        });
+        // Reset form data after user closes the alert
+        this.formData.username = '';
+        this.formData.password = '';
       }
     },
     handleEnter(event) {
@@ -107,6 +131,5 @@ export default {
   }
 };
 </script>
-    
+
 <style></style>
-    
