@@ -23,8 +23,8 @@
                         <td class="px-2 py-3 border border-black">{{ row.date }}</td>
                         <td class="border border-black">
                             <button @click="showInfoModal(row)" class="border border-black" type="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                 </svg>
@@ -38,13 +38,15 @@
             <div class="bg-white rounded-lg p-6 w-auto h-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="text-4xl font-bold text-gray-800">รูปภาพที่ถูกอัพโหลด</h2>
-                    <button @click="hideInfoModal" class="text-gray-600 hover:text-gray-800 focus:outline-none hover:bg-gray-200">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-         class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-        </path>
-    </svg>
-</button>
+                    <button @click="hideInfoModal"
+                        class="text-gray-600 hover:text-gray-800 focus:outline-none hover:bg-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button>
 
                 </div>
                 <div class="mt-4 grid grid-cols-2 gap-4">
@@ -98,98 +100,7 @@ export default {
     data() {
         return {
             isInfoModalOpen: false,
-            tableData: [
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-                { date: "25/06/2567" },
-                { date: "26/06/2567" },
-                { date: "27/06/2567" },
-                { date: "28/06/2567" },
-                { date: "29/06/2567" },
-                { date: "30/06/2567" },
-                { date: "31/06/2567" },
-                { date: "32/06/2567" },
-                { date: "33/06/2567" },
-                { date: "34/06/2567" },
-            ],
+            user: {},
             currentPage: 1,
             itemsPerPage: 5,
         };
@@ -204,6 +115,24 @@ export default {
         },
     },
     methods: {
+        showInfo() {
+            try {
+                axios({
+                    method: "get",
+                    url: ``,
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("accessToken"),
+                    },
+                })
+                    .then((res) => {  
+                        this.user = res.data;
+                        console.log(this.user);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } catch (error) { }
+        },
         showInfoModal(item) {
             this.isInfoModalOpen = true;
             console.log(item);
