@@ -39,7 +39,7 @@
 				</div>
 
 				<div>
-					<button @click.prevent="checkPasswordMatch"
+					<button @click.prevent="signup"
 						class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">สมัครสมาชิก
 					</button>
 				</div>
@@ -56,6 +56,8 @@
 </template>
     
 <script>
+import axios from axios
+import{ baseURL,REGISTER_API } from '../APIGate';
 export default {
 	name: 'Register_Page',
 	component: {
@@ -63,6 +65,7 @@ export default {
 	},
 	data() {
 		return {
+			username: "",
 			password: "",
 			confirmPassword: "",
 			passwordMatchError: false,  // เพิ่มตัวแปรสถานะสำหรับแสดงข้อความ error
@@ -70,6 +73,23 @@ export default {
 	},
 
 	methods: {
+		signup(){
+			axios({
+				method:"post",
+				url:'${baseURL}${REGISTER_API}',
+				data:{
+					username: this.formData.username,
+					password: this.formData.password,
+				},
+			})
+			.then((res) => {
+				this.$router.push("/login")
+				console.log(res.data);
+			})
+			.catch((res) => {
+				console.log(res.data);
+			});
+		},
 		checkPasswordMatch() {
 			if (this.password === this.confirmPassword) {
 				// Passwords do not match
