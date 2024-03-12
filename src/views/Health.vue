@@ -1,17 +1,19 @@
 <template>
 	<main>
 		<div>
-			<UploadImage />
+			<ShowImage/>
+			<!-- <UploadImage /> -->
 		</div>
 	</main>
 </template>
 
 <script>
 import UploadImage from '../components/UploadImage.vue';
+import ShowImage from '../components/ShowImage.vue';
 
 export default {
 	components: {
-		UploadImage,
+		UploadImage,ShowImage
 	},
 };
 </script>
