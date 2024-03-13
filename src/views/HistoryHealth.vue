@@ -82,14 +82,19 @@
         </div>
 
         <!-- Pagination Buttons -->
-        <div class="flex justify-between p-8">
-            <button @click="previousPage" :disabled="currentPage === 1">
-                Previous Page
-            </button>
-            <button @click="nextPage" :disabled="currentPage >= pageCount">
-                Next Page
-            </button>
-        </div>
+        <div>
+    <!-- Pagination Buttons -->
+    <div class="flex justify-between p-8">
+        <button @click="previousPage" :disabled="currentPage === 1">
+            Previous Page
+        </button>
+        <span>Page {{ currentPage }} of {{ pageCount }}</span>
+        <button @click="nextPage" :disabled="currentPage >= pageCount">
+            Next Page
+        </button>
+    </div>
+</div>
+
     </main>
 </template>
 
