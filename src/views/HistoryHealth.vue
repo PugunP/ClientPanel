@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(row, index) in paginatedData" :key="index" class="text-center">
-                        <td class="px-2 py-3 border border-black">{{ index + 1 }}</td>
+                        <td class="px-2 py-3 border border-black">{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
                         <td class="px-2 py-3 border border-black">{{ row.date }}</td>
                         <td class="border border-black">
                             <button @click="showInfoModal(row)" class="border border-black" type="button">
@@ -38,15 +38,14 @@
             <div class="bg-white rounded-lg p-6 w-auto h-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="text-4xl font-bold text-gray-800">รูปภาพที่ถูกอัพโหลด</h2>
-                    <button @click="hideInfoModal"
-                        class="text-gray-600 hover:text-gray-800 focus:outline-none hover:bg-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12">
-                            </path>
-                        </svg>
-                    </button>
+                    <button @click="hideInfoModal" class="text-gray-600 hover:text-gray-800 focus:outline-none hover:bg-gray-200">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+         class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+        </path>
+    </svg>
+</button>
+
 
                 </div>
                 <div class="mt-4 grid grid-cols-2 gap-4">
@@ -99,6 +98,98 @@ export default {
     name: "HistoryHealth",
     data() {
         return {
+            tableData: [
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+                { date: "25/06/2567" },
+                { date: "26/06/2567" },
+                { date: "27/06/2567" },
+                { date: "28/06/2567" },
+                { date: "29/06/2567" },
+                { date: "30/06/2567" },
+                { date: "31/06/2567" },
+                { date: "32/06/2567" },
+                { date: "33/06/2567" },
+                { date: "34/06/2567" },
+            ],
             isInfoModalOpen: false,
             user: {},
             currentPage: 1,
