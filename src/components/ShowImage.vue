@@ -18,7 +18,7 @@
         <!-- Image 02 -->
         <div class="p-6">
             <div class="flex items-center mb-4">
-                <h1 class="text-2xl font-bold">แสดงรูปภาพที่ 2</h1>
+                <!-- <h1 class="text-2xl font-bold">แสดงรูปภาพที่ 2</h1> -->
             </div>
             <div class="relative overflow-hidden cursor-pointer rounded-md border" style="width: 400px; height: 300px;">
                 <div class="absolute inset-0 opacity-90 flex items-center justify-center">
