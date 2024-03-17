@@ -33,11 +33,7 @@
           </div>
         </div>
       </div>
-      <!-- User ID Input -->
-      <div class="p-6">
-        <label for="user-id" class="text-lg font-semibold">User ID:</label>
-        <input id="user-id" v-model="userId" type="text" class="mt-2 p-2 border rounded" />
-      </div>
+
       <!-- Send Images Button -->
       <div class="p-6">
         <button @click="sendImages" class="cursor-pointer block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center">
@@ -51,7 +47,6 @@
   import { baseURL,UPLOADIMAGE_API } from '../APIGate';
   import axios from 'axios';
   import { ref } from 'vue';
-  const userId = ref(''); // ตัวแปรสำหรับเก็บค่า User ID
   const imageFile = ref(null); // ตัวแปรสำหรับเก็บไฟล์รูปภาพ
   const imagePreview = ref(null); // ตัวแปรสำหรับเก็บตัวอย่างของรูปภาพ
   const imageFile2 = ref(null); // ตัวแปรสำหรับเก็บไฟล์รูปภาพที่ 2
@@ -123,11 +118,10 @@
   };
   
   const sendImages = () => {
-    // ตรวจสอบว่าทั้งภาพทั้งสองและ userId ได้ถูกเลือกหรือไม่
-    if (imageFile.value && imageFile2.value && userId.value) {
+    // ตรวจสอบว่าทั้งภาพทั้งสองได้ถูกเลือกหรือไม่
+    if (imageFile.value && imageFile2.value ) {
       // เตรียมข้อมูลแบบฟอร์ม
       const formData = new FormData();
-      formData.append('userId', userId.value); // เพิ่ม userId เข้าไปใน formData
       formData.append('oxiMeterImage', imageFile.value); // เพิ่มภาพ oxiMeter เข้าไปใน formData
       formData.append('bloodPressureMeterImage', imageFile2.value); // เพิ่มภาพ bloodPressureMeter เข้าไปใน formData
 
@@ -148,7 +142,6 @@
         // Reset form after successful upload
         resetImage(); // เรียกใช้ฟังก์ชันเพื่อล้างรูปภาพ
         resetImage2(); // เรียกใช้ฟังก์ชันเพื่อล้างรูปภาพที่ 2
-        userId.value = ''; // กำหนดค่า User ID เป็นค่าว่าง
       }).catch(error => {
         console.error('Error uploading images:', error); // แสดงข้อความเมื่อเกิดข้อผิดพลาดในการอัปโหลดรูปภาพ
         Swal.fire({
@@ -157,14 +150,7 @@
           text: `พบปัญหาที่การส่งรูปภาพ : ${error}`,
         });
       });
-    } else {
-      console.error('Please select both images and provide userId'); // แสดงข้อความเมื่อไม่ได้เลือกรูปภาพทั้งสองและให้ User ID
-      Swal.fire({
-          icon: "warning",
-          title: "ขออภัย... ",
-          text: "กรุณาใส่userId",
-        });
-    }
+    } 
   };
   
   </script>

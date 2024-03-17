@@ -6,7 +6,7 @@
             <div class="flex items-center mb-4">
                 <h1 class="text-2xl font-bold">แสดงรูปภาพที่ 1</h1>
             </div>
-            <div class="relative overflow-hidden cursor-pointer rounded-md border" style="width: 400px; height: 300px;">
+            <div class="relative overflow-hidden  rounded-md border" style="width: 400px; height: 300px;">
                 <div class="absolute inset-0 opacity-90 flex items-center justify-center">
                     <!-- แสดงรูปภาพที่ได้จาก API -->
                     <img v-if="image1" :src="image1" alt="Image Preview" class="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg" />
@@ -20,7 +20,7 @@
             <div class="flex items-center mb-4">
                 <h1 class="text-2xl font-bold">แสดงรูปภาพที่ 2</h1>
             </div>
-            <div class="relative overflow-hidden cursor-pointer rounded-md border" style="width: 400px; height: 300px;">
+            <div class="relative overflow-hidden  rounded-md border" style="width: 400px; height: 300px;">
                 <div class="absolute inset-0 opacity-90 flex items-center justify-center">
                     <!-- แสดงรูปภาพที่ได้จาก API -->
                     <img v-if="image2" :src="image2" alt="Image Preview" class="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg" />
@@ -46,7 +46,7 @@ export default {
         // ทำการยิง API เพื่อดึงข้อมูล
         axios.get('http://localhost:8080/api/get-me-dataHealth', {
             headers: {
-                'Authorization': `Bearer${localStorage.getItem('accessToken')}`
+                'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
             }
         })
         .then(response => {
@@ -60,4 +60,5 @@ export default {
         });
     }
 };
+
 </script>
