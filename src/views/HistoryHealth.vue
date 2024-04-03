@@ -47,7 +47,7 @@
                         <p class="text-xl">
                             1. ความดันของเลือดสูงสุดขณะหัวใจห้องล่างบีบตัว
                         </p>
-                        <img :src="selectedItem.oxiMeterImage" alt="Image 1" class="w-full h-auto object-cover rounded-lg" />
+                        <img :src="img1" alt="Image 1" class="w-full h-auto object-cover rounded-lg" />
                         <br />
                         <p class="text-xl border rounded p-4 bg-gray-100">1.<!--{{ selectedItem.bloodPressureMeterImage }}--> สุขภาพดี </p>
                     </div>
@@ -55,7 +55,7 @@
                         <p class="text-xl">
                             2. ความดันเลือดที่ต่ำสุดขณะหัวใจห้องล่างคลายตัว
                         </p>
-                        <img :src="selectedItem.bloodPressureMeterImage" alt="Image 2" class="w-full h-auto object-cover rounded-lg" />
+                        <img :src="img2" alt="Image 2" class="w-full h-auto object-cover rounded-lg" />
                         <br />
                         <p class="text-xl border rounded p-4 bg-gray-100">2. <!--{{ selectedItem.bloodPressureMeterImage }}-->สุขภาพดี</p>
                     </div>
@@ -85,6 +85,8 @@ export default {
     name: "HistoryHealth",
     data() {
         return {
+            img1: '',
+        img2: '',
             tableData: [],
             isInfoModalOpen: false,
             user: {},
@@ -111,6 +113,10 @@ export default {
                     },
                 });
                 this.tableData = response.data;
+                if (this.tableData.length >= 2) {
+            this.img1 = 'data:image/png;base64,' + this.tableData[0].oxiMeterImage;
+            this.img2 = 'data:image/png;base64,' + this.tableData[1].bloodPressureMeterImage;
+        }
                 console.log(this.tableData);
             } catch (error) {
                 console.error(error);
