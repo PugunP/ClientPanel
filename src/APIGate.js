@@ -5,7 +5,7 @@
 const baseURL = "http://localhost:8080/api" 
 const LOGIN_API = "/user-login";
 const REGISTER_API = "/user-register";
-const UPLOADIMAGE_API = "/upload-image";
+const UPLOADIMAGE_API = "/upload-images-me"; 
 const GETIMAGE_API = "/get-images"; //อย่าลืม / {userId}
 export {
     baseURL,
