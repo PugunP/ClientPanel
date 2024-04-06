@@ -47,7 +47,7 @@
     <p class="text-xl">
         1. ความดันของเลือดสูงสุดขณะหัวใจห้องล่างบีบตัว
     </p>
-    <img :src="'data:image/jpeg;base64,' + selectedItem.oxiMeterImage" alt="Image 1" class="mx-16 w-64 h-64 object-cover rounded-lg" />
+    <img :src="'data:image/jpeg;base64,' + selectedItem.oxiMeterImage" alt="Image 1" class="mx-16 w-64 h-64 object-cover rounded-lg" loading="lazy" />
     <br />
     <p class="text-xl border rounded p-4 bg-gray-100">1. {{ selectedItem.bloodPressureMeterDescription }}</p>
 </div>
@@ -55,7 +55,7 @@
     <p class="text-xl">
         2. ความดันเลือดที่ต่ำสุดขณะหัวใจห้องล่างคลายตัว
     </p>
-    <img :src="'data:image/jpeg;base64,' + selectedItem.bloodPressureMeterImage" alt="Image 2" class="mx-16 px-auto w-64 h-64 object-cover rounded-lg" />
+    <img :src="'data:image/jpeg;base64,' + selectedItem.bloodPressureMeterImage" alt="Image 2" class="mx-16 px-auto w-64 h-64 object-cover rounded-lg" loading="lazy" />
     <br />
     <p class="text-xl border rounded p-4 bg-gray-100">2. {{ selectedItem.bloodPressureMeterDescription }}</p>
 </div>
@@ -118,7 +118,7 @@ export default {
             oxiMeterImageUrl: 'data:image/jpeg;base64,' + item.oxiMeterImage,
             bloodPressureMeterImageUrl: 'data:image/jpeg;base64,' + item.bloodPressureMeterImage,
         }));
-        console.log(this.tableData);
+        // console.log(this.tableData);
             } catch (error) {
                 console.error(error);
             }
@@ -126,7 +126,7 @@ export default {
         showInfoModal(item) {
             this.isInfoModalOpen = true;
             this.selectedItem = item;
-            console.log("ข้อมูล item",item);
+            // console.log("ข้อมูล item",item);
         },
         hideInfoModal() {
             this.isInfoModalOpen = false;
