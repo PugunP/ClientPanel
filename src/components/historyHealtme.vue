@@ -78,12 +78,12 @@
 </template>
 
 <script>
-import { baseURL,GETALLIMAGE_MEAPI } from "../APIGate";
 import axios from 'axios';
 import moment from 'moment';
 
 
 export default {
+    name: "HistoryHealthme",
     data() {
         return {
             img1: null,
@@ -108,7 +108,7 @@ export default {
     methods: {
         async showInfo() {
             try {
-                const response = await axios.get(`${baseURL}${GETALLIMAGE_MEAPI}`, {
+                const response = await axios.get('http://localhost:8080/api/get-all-images-me', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
                     },
